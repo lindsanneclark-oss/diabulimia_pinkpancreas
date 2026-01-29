@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pink Pancreas Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #FFB6D9;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: #FFF0F5;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            color: #FF69B4;
+            margin-bottom: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #FF69B4;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .about h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FF69B4;
+            margin-bottom: 30px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+        
+        /* Topics Section */
+        .topics {
+            padding: 60px 20px;
+            background: #FFFACD;
+        }
+        
+        .topics h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #9370DB;
+            margin-bottom: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .topic-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .topic-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #FF69B4;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        
+        .topic-card p {
+            color: #666;
+        }
+        
+        .topic-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        /* Community Section */
+        .community {
+            padding: 60px 20px;
+            background: #E0F0FF;
+            text-align: center;
+        }
+        
+        .community h2 {
+            font-size: 2.5em;
+            color: #4169E1;
+            margin-bottom: 30px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .community p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1em;
+            color: #555;
+        }
+        
+        /* Resources Section */
+        .resources {
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .resources h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #9370DB;
+            margin-bottom: 40px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .resource-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #F3E5F5;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #9370DB;
+        }
+        
+        .resource-box h3 {
+            color: #9370DB;
+            margin-bottom: 15px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        
+        .resource-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .resource-box li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .resource-box li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer {
+            font-size: 0.9em;
+            color: #ccc;
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="#FF69B4" stroke="#fff" stroke-width="3"/>
+                    <path d="M 100 115 C 100 115, 87 85, 65 85 C 48 85, 35 98, 35 115 C 35 145, 100 175, 100 175 C 100 175, 165 145, 165 115 C 165 98, 152 85, 135 85 C 113 85, 100 115, 100 115 Z" fill="#fff"/>
+                    <g transform="translate(100, 120) rotate(-45)">
+                        <rect x="-4" y="-30" width="8" height="45" rx="1.5" fill="#9370DB"/>
+                        <rect x="-4.5" y="-37" width="9" height="8" rx="1.5" fill="#7B68AA"/>
+                        <path d="M -1.5 15 L -0.8 25 L 0.8 25 L 1.5 15 Z" fill="#C0C0C0"/>
+                        <rect x="-3" y="-5" width="6" height="12" rx="0.8" fill="#E6D5FF"/>
+                        <circle cx="0" cy="-28" r="3" fill="#E6D5FF"/>
+                    </g>
+                </svg>
+                <span>The Pink Pancreas Project</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#topics">Topics</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>You Are Not Alone</h1>
+            <p>A supportive space for young women with Type 1 Diabetes to find understanding, resources, and community around body image, eating disorders, and holistic wellness.</p>
+            <a href="#community" class="cta-button">Join Our Community</a>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>The Pink Pancreas Project exists because living with Type 1 Diabetes is about more than blood sugar numbers. We understand the unique challenges young women face—from navigating body image in a world obsessed with weight, to the dangerous intersection of diabetes management and eating disorders. This is a judgment-free space where your experiences are valid, your struggles are seen, and your strength is celebrated.</p>
+        </div>
+    </section>
+    
+    <section id="topics" class="topics">
+        <div class="container">
+            <h2>What We Talk About</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">💗</div>
+                    <h3>Body Image</h3>
+                    <p>Navigating self-acceptance and body positivity while managing a chronic condition that affects weight and body composition.</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🌸</div>
+                    <h3>Eating Disorders</h3>
+                    <p>Understanding the complex relationship between diabetes management and disordered eating patterns.</p>
+                    <a href="eating-disorders.html" style="color: #9370DB; text-decoration: underline; margin-top: 10px; display: inline-block;">Learn more →</a>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">💊</div>
+                    <h3>Insulin Restriction</h3>
+                    <p>Addressing the serious dangers of insulin omission (diabulimia) with compassion and evidence-based support.</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>Building connections with others who truly understand the daily realities of living with T1D as a young woman.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="community" class="community">
+        <div class="container">
+            <h2>Find Your People</h2>
+            <p>You don't have to navigate this alone. Connect with other young women who understand the unique intersection of Type 1 Diabetes, mental health, and body image. Share experiences, find support, and build meaningful connections.</p>
+            <a href="community-board.html" class="cta-button">Join the Discussion Board</a>
+        </div>
+    </section>
+    
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>Helpful Resources</h2>
+            
+            <div class="resource-box" style="margin-bottom: 30px;">
+                <h3>Find Specialized Care</h3>
+                <p style="margin-bottom: 20px; color: #555;">Connect with healthcare providers who understand the intersection of Type 1 Diabetes and eating disorders. These specialists can provide compassionate, informed care tailored to your unique needs.</p>
+                <a href="#" class="cta-button" style="background: #9370DB; box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);">Find a Physician</a>
+            </div>
+            
+            <div class="resource-box" style="margin-bottom: 30px;">
+                <h3>Research & Academic Literature</h3>
+                <p style="margin-bottom: 15px; color: #555;">Evidence-based research on Type 1 Diabetes and eating disorders. These peer
