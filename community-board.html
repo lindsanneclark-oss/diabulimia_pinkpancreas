@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Board - The Pink Pancreas Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #FFF0F5;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #FFB6D9;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+        
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            background: #FFB6D9;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.1em;
+        }
+        
+        .main-content {
+            padding: 40px 20px;
+        }
+        
+        .guidelines {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #9370DB;
+        }
+        
+        .guidelines h3 {
+            color: #9370DB;
+            margin-bottom: 15px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        
+        .guidelines ul {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .guidelines li {
+            margin-bottom: 8px;
+        }
+        
+        .post-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .post-form h3 {
+            color: #FF69B4;
+            margin-bottom: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #FFB6D9;
+            border-radius: 8px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1em;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF69B4;
+        }
+        
+        .submit-btn {
+            background: #FF69B4;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-section label {
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .filter-section select {
+            padding: 8px 15px;
+            border: 2px solid #FFB6D9;
+            border-radius: 8px;
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .posts-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .post {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .post-author {
+            font-weight: 600;
+            color: #FF69B4;
+        }
+        
+        .post-date {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .post-category {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .category-support {
+            background: #E0F0FF;
+            color: #4169E1;
+        }
+        
+        .category-experiences {
+            background: #FFF0F5;
+            color: #FF69B4;
+        }
+        
+        .category-resources {
+            background: #F3E5F5;
+            color: #9370DB;
+        }
+        
+        .category-questions {
+            background: #FFFACD;
+            color: #DAA520;
+        }
+        
+        .post-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .post-content {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .post-actions {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .post-action {
+            color: #999;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .post-action:hover {
+            color: #FF69B4;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .disclaimer {
+            font-size: 0.9em;
+            color: #ccc;
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .post-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="#FF69B4" stroke="#fff" stroke-width="3"/>
+                    <path d="M 100 115 C 100 115, 87 85, 65 85 C 48 85, 35 98, 35 115 C 35 145, 100 175, 100 175 C 100 175, 165 145, 165 115 C 165 98, 152 85, 135 85 C 113 85, 100 115, 100 115 Z" fill="#fff"/>
+                    <g transform="translate(100, 120) rotate(-45)">
+                        <rect x="-4" y="-30" width="8" height="45" rx="1.5" fill="#9370DB"/>
+                        <rect x="-4.5" y="-37" width="9" height="8" rx="1.5" fill="#7B68AA"/>
+                        <path d="M -1.5 15 L -0.8 25 L 0.8 25 L 1.5 15 Z" fill="#C0C0C0"/>
+                        <rect x="-3" y="-5" width="6" height="12" rx="0.8" fill="#E6D5FF"/>
+                        <circle cx="0" cy="-28" r="3" fill="#E6D5FF"/>
+                    </g>
+                </svg>
+                <span>The Pink Pancreas Project</span>
+            </a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Community Discussion Board</h1>
+            <p>A safe space to share, connect, and support one another</p>
+        </div>
+    </section>
+    
+    <main class="main-content container">
+        <div class="guidelines">
+            <h3>Community Guidelines</h3>
+            <ul>
+                <li>Be kind and respectful to all members</li>
+                <li>Share experiences honestly, but protect your privacy</li>
+                <li>No medical advice - encourage seeking professional help</li>
+                <li>Trigger warnings for sensitive content related to eating disorders</li>
+                <li>Report any concerning posts to moderators</li>
+                <li>This is a judgment-free zone - all experiences are valid</li>
+            </ul>
+        </div>
+        
+        <div class="post-form">
+            <h3>Share Your Story</h3>
+            <form id="postForm">
+                <div class="form-group">
+                    <label for="username">Display Name (Anonymous is OK!)</label>
+                    <input type="text" id="username" placeholder="e.g., PinkWarrior23" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select a category...</option>
+                        <option value="support">Looking for Support</option>
+                        <option value="experiences">Sharing My Experience</option>
+                        <option value="resources">Resources & Tips</option>
+                        <option value="questions">Questions</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Give your post a title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content">Your Message</label>
+                    <textarea id="content" placeholder="Share your thoughts, experiences, or questions..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Post to Community</button>
+            </form>
+        </div>
+        
+        <div class="filter-section">
+            <label for="filterCategory">Filter by:</label>
+            <select id="filterCategory">
+                <option value="all">All Posts</option>
+                <option value="support">Looking for Support</option>
+                <option value="experiences">Sharing Experiences</option>
+                <option value="resources">Resources & Tips</option>
+                <option value="questions">Questions</option>
+            </select>
+        </div>
+        
+        <div class="posts-container" id="postsContainer">
+            <!-- Sample Posts -->
+            <div class="post" data-category="support">
+                <div class="post-header">
+                    <div>
+                        <div class="post-author">SugarFreeStrength</div>
+                        <div class="post-date">2 days ago</div>
+                    </div>
+                    <span class="post-category category-support">Looking for Support</span>
+                </div>
+                <div class="post-title">Struggling with body image after starting insulin pump</div>
+                <div class="post-content">
+                    I just started using an insulin pump and I'm having a really hard time accepting how it looks on my body. I know it's helping me manage my diabetes better, but I feel so self-conscious wearing it. Does anyone else feel this way? How did you learn to accept it?
+                </div>
+                <div class="post-actions">
+                    <span class="post-action">💬 5 replies</span>
+                    <span class="post-action">❤️ Support</span>
+                </div>
+            </div>
+            
+            <div class="post" data-category="experiences">
+                <div class="post-header">
+                    <div>
+                        <div class="post-author">PancreasWarrior</div>
+                        <div class="post-date">5 days ago</div>
+                    </div>
+                    <span class="post-category category-experiences">Sharing My Experience</span>
+                </div>
+                <div class="post-title">One year in recovery from diabulimia</div>
+                <div class="post-content">
+                    Today marks one year since I committed to taking my insulin as prescribed. It's been the hardest year of my life, but also the most empowering. My A1C is finally in range, and I'm learning to trust my body again. If you're struggling with insulin restriction, please know that recovery is possible. You deserve to be healthy and happy.
+                </div>
+                <div class="post-actions">
+                    <span class="post-action">💬 12 replies</span>
+                    <span class="post-action">❤️ Support</span>
+                </div>
+            </div>
+            
+            <div class="post" data-category="resources">
+                <div class="post-header">
+                    <div>
+                        <div class="post-author">T1DAdvocate</div>
+                        <div class="post-date">1 week ago</div>
+                    </div>
+                    <span class="post-category category-resources">Resources & Tips</span>
+                </div>
+                <div class="post-title">Therapists who specialize in T1D and eating disorders</div>
+                <div class="post-content">
+                    I wanted to share some resources for finding therapists who understand both diabetes and eating disorders. The We Are Diabetes organization has a directory of specialists. Also, don't be afraid to ask potential therapists directly about their experience with diabetic patients and EDs. The right support makes all the difference.
+                </div>
+                <div class="post-actions">
+                    <span class="post-action">💬 8 replies</span>
+                    <span class="post-action">❤️ Support</span>
+                </div>
+            </div>
+            
+            <div class="post" data-category="questions">
+                <div class="post-header">
+                    <div>
+                        <div class="post-author">NewToThis2024</div>
+                        <div class="post-date">3 days ago</div>
+                    </div>
+                    <span class="post-category category-questions">Questions</span>
+                </div>
+                <div class="post-title">How do you handle comments about food choices?</div>
+                <div class="post-content">
+                    I'm really struggling with people commenting on what I eat. Family members and even strangers seem to think they can police my food choices because I have diabetes. It's making me feel anxious about eating in public. How do you all handle these situations?
+                </div>
+                <div class="post-actions">
+                    <span class="post-action">💬 15 replies</span>
+                    <span class="post-action">❤️ Support</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Pink Pancreas Project</p>
+            <p>Supporting young women with Type 1 Diabetes</p>
+            <p class="disclaimer">
+                This is a peer support community and should not replace professional medical or mental health care. 
+                If you are in crisis, please contact the National Eating Disorders Association Helpline at 1-800-931-2237 
+                or the National Suicide Prevention Lifeline at 988.
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple filtering functionality
+        document.getElementById('filterCategory').addEventListener('change', function() {
+            const filter = this.value;
+            const posts = document.querySelectorAll('.post');
+            
+            posts.forEach(post => {
+                if (filter === 'all' || post.dataset.category === filter) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+        
+        // Form submission (would connect to backend in production)
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for sharing! In a live version, your post would be submitted for moderation before appearing on the board.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
