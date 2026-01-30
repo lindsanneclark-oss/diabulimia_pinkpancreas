@@ -178,6 +178,12 @@
             box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
         }
         
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .filter-section {
             background: white;
             padding: 20px;
@@ -212,6 +218,18 @@
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .post-header {
@@ -271,25 +289,49 @@
         .post-content {
             color: #555;
             line-height: 1.8;
+            white-space: pre-wrap;
         }
         
-        .post-actions {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-            display: flex;
-            gap: 20px;
-        }
-        
-        .post-action {
+        .loading {
+            text-align: center;
+            padding: 40px;
             color: #999;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: color 0.3s;
+            font-size: 1.1em;
         }
         
-        .post-action:hover {
-            color: #FF69B4;
+        .no-posts {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 1.1em;
+            background: white;
+            border-radius: 15px;
+        }
+        
+        .success-message {
+            background: #D4EDDA;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28A745;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         footer {
@@ -361,6 +403,10 @@
             </ul>
         </div>
         
+        <div id="successMessage" class="success-message">
+            ✓ Your post has been shared with the community!
+        </div>
+        
         <div class="post-form">
             <h3>Share Your Story</h3>
             <form id="postForm">
@@ -390,7 +436,7 @@
                     <textarea id="content" placeholder="Share your thoughts, experiences, or questions..." required></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn">Post to Community</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Post to Community</button>
             </form>
         </div>
         
@@ -405,79 +451,8 @@
             </select>
         </div>
         
-        <div class="posts-container" id="postsContainer">
-            <!-- Sample Posts -->
-            <div class="post" data-category="support">
-                <div class="post-header">
-                    <div>
-                        <div class="post-author">SugarFreeStrength</div>
-                        <div class="post-date">2 days ago</div>
-                    </div>
-                    <span class="post-category category-support">Looking for Support</span>
-                </div>
-                <div class="post-title">Struggling with body image after starting insulin pump</div>
-                <div class="post-content">
-                    I just started using an insulin pump and I'm having a really hard time accepting how it looks on my body. I know it's helping me manage my diabetes better, but I feel so self-conscious wearing it. Does anyone else feel this way? How did you learn to accept it?
-                </div>
-                <div class="post-actions">
-                    <span class="post-action">💬 5 replies</span>
-                    <span class="post-action">❤️ Support</span>
-                </div>
-            </div>
-            
-            <div class="post" data-category="experiences">
-                <div class="post-header">
-                    <div>
-                        <div class="post-author">PancreasWarrior</div>
-                        <div class="post-date">5 days ago</div>
-                    </div>
-                    <span class="post-category category-experiences">Sharing My Experience</span>
-                </div>
-                <div class="post-title">One year in recovery from diabulimia</div>
-                <div class="post-content">
-                    Today marks one year since I committed to taking my insulin as prescribed. It's been the hardest year of my life, but also the most empowering. My A1C is finally in range, and I'm learning to trust my body again. If you're struggling with insulin restriction, please know that recovery is possible. You deserve to be healthy and happy.
-                </div>
-                <div class="post-actions">
-                    <span class="post-action">💬 12 replies</span>
-                    <span class="post-action">❤️ Support</span>
-                </div>
-            </div>
-            
-            <div class="post" data-category="resources">
-                <div class="post-header">
-                    <div>
-                        <div class="post-author">T1DAdvocate</div>
-                        <div class="post-date">1 week ago</div>
-                    </div>
-                    <span class="post-category category-resources">Resources & Tips</span>
-                </div>
-                <div class="post-title">Therapists who specialize in T1D and eating disorders</div>
-                <div class="post-content">
-                    I wanted to share some resources for finding therapists who understand both diabetes and eating disorders. The We Are Diabetes organization has a directory of specialists. Also, don't be afraid to ask potential therapists directly about their experience with diabetic patients and EDs. The right support makes all the difference.
-                </div>
-                <div class="post-actions">
-                    <span class="post-action">💬 8 replies</span>
-                    <span class="post-action">❤️ Support</span>
-                </div>
-            </div>
-            
-            <div class="post" data-category="questions">
-                <div class="post-header">
-                    <div>
-                        <div class="post-author">NewToThis2024</div>
-                        <div class="post-date">3 days ago</div>
-                    </div>
-                    <span class="post-category category-questions">Questions</span>
-                </div>
-                <div class="post-title">How do you handle comments about food choices?</div>
-                <div class="post-content">
-                    I'm really struggling with people commenting on what I eat. Family members and even strangers seem to think they can police my food choices because I have diabetes. It's making me feel anxious about eating in public. How do you all handle these situations?
-                </div>
-                <div class="post-actions">
-                    <span class="post-action">💬 15 replies</span>
-                    <span class="post-action">❤️ Support</span>
-                </div>
-            </div>
+        <div id="postsContainer" class="posts-container">
+            <div class="loading">Loading posts...</div>
         </div>
     </main>
     
@@ -493,10 +468,167 @@
         </div>
     </footer>
     
-    <script>
-        // Simple filtering functionality
-        document.getElementById('filterCategory').addEventListener('change', function() {
-            const filter = this.value;
+    <!-- Firebase SDK for Realtime Database -->
+    <script type="module">
+        // Import Firebase modules for Realtime Database
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getDatabase, ref, push, onValue, query, orderByChild } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+        
+        // Your Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAtZY_xBSDG1r5TLVOjRJAhZ2mUwal4aoU",
+            authDomain: "diabulimia-website.firebaseapp.com",
+            databaseURL: "https://diabulimia-website-default-rtdb.firebaseio.com",
+            projectId: "diabulimia-website",
+            storageBucket: "diabulimia-website.firebasestorage.app",
+            messagingSenderId: "524335214865",
+            appId: "1:524335214865:web:b74136f424a1e7fefd5cb0",
+            measurementId: "G-2HT3FS8K4R"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        
+        // Category labels mapping
+        const categoryLabels = {
+            'support': 'Looking for Support',
+            'experiences': 'Sharing My Experience',
+            'resources': 'Resources & Tips',
+            'questions': 'Questions'
+        };
+        
+        // Format timestamp to readable date
+        function formatDate(timestamp) {
+            if (!timestamp) return 'Just now';
+            
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+            
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins} minute${diffMins > 1 ? 's' : ''} ago`;
+            if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+            if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+            
+            return date.toLocaleDateString();
+        }
+        
+        // Create post HTML element
+        function createPostElement(post) {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'post';
+            postDiv.dataset.category = post.category;
+            postDiv.dataset.timestamp = post.timestamp;
+            
+            postDiv.innerHTML = `
+                <div class="post-header">
+                    <div>
+                        <div class="post-author">${escapeHtml(post.username)}</div>
+                        <div class="post-date">${formatDate(post.timestamp)}</div>
+                    </div>
+                    <span class="post-category category-${post.category}">${categoryLabels[post.category]}</span>
+                </div>
+                <div class="post-title">${escapeHtml(post.title)}</div>
+                <div class="post-content">${escapeHtml(post.content)}</div>
+            `;
+            
+            return postDiv;
+        }
+        
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Load and display posts from Realtime Database
+        function loadPosts() {
+            const postsContainer = document.getElementById('postsContainer');
+            const postsRef = ref(database, 'posts');
+            
+            onValue(postsRef, (snapshot) => {
+                postsContainer.innerHTML = '';
+                
+                if (!snapshot.exists()) {
+                    postsContainer.innerHTML = '<div class="no-posts">No posts yet. Be the first to share!</div>';
+                    return;
+                }
+                
+                // Convert snapshot to array and sort by timestamp (newest first)
+                const postsArray = [];
+                snapshot.forEach((childSnapshot) => {
+                    const post = childSnapshot.val();
+                    postsArray.push(post);
+                });
+                
+                // Sort by timestamp descending (newest first)
+                postsArray.sort((a, b) => b.timestamp - a.timestamp);
+                
+                // Create and append post elements
+                postsArray.forEach((post) => {
+                    const postElement = createPostElement(post);
+                    postsContainer.appendChild(postElement);
+                });
+                
+                // Apply current filter
+                applyFilter();
+            }, (error) => {
+                console.error('Error loading posts:', error);
+                postsContainer.innerHTML = '<div class="no-posts">Error loading posts. Please refresh the page.</div>';
+            });
+        }
+        
+        // Submit new post to Realtime Database
+        document.getElementById('postForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Posting...';
+            
+            const username = document.getElementById('username').value;
+            const category = document.getElementById('category').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            
+            try {
+                const postsRef = ref(database, 'posts');
+                await push(postsRef, {
+                    username: username,
+                    category: category,
+                    title: title,
+                    content: content,
+                    timestamp: Date.now()
+                });
+                
+                // Show success message
+                const successMsg = document.getElementById('successMessage');
+                successMsg.classList.add('show');
+                setTimeout(() => successMsg.classList.remove('show'), 3000);
+                
+                // Clear form
+                document.getElementById('postForm').reset();
+                
+                // Scroll to top to see success message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+            } catch (error) {
+                console.error('Error adding post:', error);
+                alert('Error posting. Please try again.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Post to Community';
+            }
+        });
+        
+        // Filter posts by category
+        function applyFilter() {
+            const filter = document.getElementById('filterCategory').value;
             const posts = document.querySelectorAll('.post');
             
             posts.forEach(post => {
@@ -506,14 +638,12 @@
                     post.style.display = 'none';
                 }
             });
-        });
+        }
         
-        // Form submission (would connect to backend in production)
-        document.getElementById('postForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for sharing! In a live version, your post would be submitted for moderation before appearing on the board.');
-            this.reset();
-        });
+        document.getElementById('filterCategory').addEventListener('change', applyFilter);
+        
+        // Initialize - load posts when page loads
+        loadPosts();
     </script>
 </body>
 </html>
