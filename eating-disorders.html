@@ -141,6 +141,19 @@
             border-left: 5px solid #FF69B4;
         }
         
+        .warning-box {
+            background: #FFF4E6;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #FFA500;
+        }
+        
+        .warning-box h3 {
+            color: #FFA500;
+            margin-top: 0;
+        }
+        
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -166,6 +179,87 @@
             margin-top: 10px;
         }
         
+        .signs-list {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .signs-list h3 {
+            color: #9370DB;
+            margin-bottom: 20px;
+        }
+        
+        .signs-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .signs-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .signs-list li:before {
+            content: "•";
+            color: #FF69B4;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+        }
+        
+        .help-section {
+            background: #E8F5E9;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .help-section h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        
+        .help-section p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        
+        .help-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .resource-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+        
+        .resource-card a {
+            color: #4169E1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
         footer {
             background: #333;
             color: white;
@@ -181,4 +275,193 @@
             margin: 20px auto 0;
             font-style: italic;
         }
-    </s
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="#FF69B4" stroke="#fff" stroke-width="3"/>
+                    <path d="M 100 115 C 100 115, 87 85, 65 85 C 48 85, 35 98, 35 115 C 35 145, 100 175, 100 175 C 100 175, 165 145, 165 115 C 165 98, 152 85, 135 85 C 113 85, 100 115, 100 115 Z" fill="#fff"/>
+                    <g transform="translate(100, 120) rotate(-45)">
+                        <rect x="-4" y="-30" width="8" height="45" rx="1.5" fill="#9370DB"/>
+                        <rect x="-4.5" y="-37" width="9" height="8" rx="1.5" fill="#7B68AA"/>
+                        <path d="M -1.5 15 L -0.8 25 L 0.8 25 L 1.5 15 Z" fill="#C0C0C0"/>
+                        <rect x="-3" y="-5" width="6" height="12" rx="0.8" fill="#E6D5FF"/>
+                        <circle cx="0" cy="-28" r="3" fill="#E6D5FF"/>
+                    </g>
+                </svg>
+                <span>The Pink Pancreas Project</span>
+            </a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Eating Disorders & Type 1 Diabetes</h1>
+            <p>Understanding the complex relationship between diabetes management and eating disorders</p>
+        </div>
+    </section>
+    
+    <main class="content-section container">
+        <div class="key-terms">
+            <h3>Key Terms to Know</h3>
+            <div class="key-term">
+                <strong>Diabulimia:</strong> A serious eating disorder where people with Type 1 Diabetes deliberately restrict or omit insulin to lose weight. This is not an officially recognized medical term but is widely used in the T1D community.
+            </div>
+            <div class="key-term">
+                <strong>Insulin Omission/Restriction:</strong> The medically accurate term for deliberately skipping or reducing insulin doses for weight control purposes.
+            </div>
+            <div class="key-term">
+                <strong>ED-DMT1:</strong> Eating Disorder - Diabetes Mellitus Type 1, referring to the intersection of eating disorders and Type 1 Diabetes.
+            </div>
+        </div>
+        
+        <h2>Why Are Eating Disorders More Common in T1D?</h2>
+        <p>Young women with Type 1 Diabetes face unique challenges that can increase vulnerability to eating disorders. Managing diabetes requires constant attention to food, carbohydrates, and body weight. This necessary focus on food and weight can sometimes spiral into unhealthy patterns.</p>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">2-3x</div>
+                <div class="stat-label">Higher risk of eating disorders in women with T1D</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30-40%</div>
+                <div class="stat-label">Of women with T1D report insulin restriction for weight control</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6-11x</div>
+                <div class="stat-label">Increased mortality risk with eating disorders and T1D</div>
+            </div>
+        </div>
+        
+        <h3>Contributing Factors</h3>
+        <p>Several factors make eating disorders more common among young women with Type 1 Diabetes:</p>
+        
+        <div class="highlight-box">
+            <p><strong>Weight Gain from Insulin:</strong> Starting insulin or improving diabetes control often leads to weight gain as the body stops losing glucose through urine. This can be distressing for young women already concerned about body image.</p>
+            
+            <p><strong>Constant Food Focus:</strong> Diabetes management requires thinking about food constantly - counting carbs, timing meals, adjusting for activity. This can blur the line between healthy management and obsessive thoughts about food.</p>
+            
+            <p><strong>Insulin as a Weight Control Tool:</strong> Many people with T1D discover (accidentally or intentionally) that omitting insulin causes rapid weight loss. This creates a dangerous "easy" weight loss method.</p>
+            
+            <p><strong>Lack of Privacy:</strong> Blood sugar numbers, food choices, and body weight are often monitored by parents and healthcare providers, reducing autonomy and increasing pressure.</p>
+        </div>
+        
+        <h2>Warning Signs to Watch For</h2>
+        
+        <div class="signs-list">
+            <h3>Physical & Medical Signs</h3>
+            <ul>
+                <li>Consistently high A1C levels despite apparent diabetes management efforts</li>
+                <li>Frequent episodes of diabetic ketoacidosis (DKA)</li>
+                <li>Unexplained weight loss or fluctuations</li>
+                <li>Recurring yeast infections or UTIs</li>
+                <li>Delayed wound healing</li>
+                <li>Vision problems</li>
+                <li>Fatigue and weakness</li>
+            </ul>
+        </div>
+        
+        <div class="signs-list">
+            <h3>Behavioral & Psychological Signs</h3>
+            <ul>
+                <li>Secrecy around diabetes management</li>
+                <li>Avoiding diabetes appointments or lying about insulin use</li>
+                <li>Excessive exercise</li>
+                <li>Food restriction or binge eating</li>
+                <li>Preoccupation with weight, calories, or body image</li>
+                <li>Social withdrawal, especially around meals</li>
+                <li>Anxiety or depression</li>
+                <li>Perfectionism about diabetes control alternating with apparent neglect</li>
+            </ul>
+        </div>
+        
+        <div class="warning-box">
+            <h3>⚠️ The Dangers of Insulin Omission</h3>
+            <p>Deliberately restricting or omitting insulin is extremely dangerous and can cause:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li>Diabetic ketoacidosis (DKA) - a life-threatening condition</li>
+                <li>Kidney damage and failure</li>
+                <li>Vision loss and blindness</li>
+                <li>Nerve damage (neuropathy)</li>
+                <li>Heart disease</li>
+                <li>Premature death</li>
+            </ul>
+            <p style="margin-top: 15px;">Studies show that eating disorders combined with Type 1 Diabetes have one of the highest mortality rates of any psychiatric condition.</p>
+        </div>
+        
+        <h2>The Path to Recovery</h2>
+        <p>Recovery from eating disorders with Type 1 Diabetes is possible, but it requires specialized care from professionals who understand both conditions. Recovery is not just about taking insulin consistently - it's about healing your relationship with food, your body, and diabetes management.</p>
+        
+        <h3>What Effective Treatment Looks Like</h3>
+        <p>The most successful treatment approaches include:</p>
+        <ul style="margin-left: 30px; color: #555; margin-bottom: 20px;">
+            <li>A multidisciplinary team including endocrinologists, eating disorder specialists, therapists, and dietitians</li>
+            <li>Cognitive behavioral therapy (CBT) adapted for diabetes</li>
+            <li>Family-based treatment for younger patients</li>
+            <li>Nutritional counseling that integrates diabetes needs</li>
+            <li>Medical monitoring and support</li>
+            <li>Peer support groups</li>
+        </ul>
+        
+        <div class="help-section">
+            <h2>Get Help Now</h2>
+            <p>If you or someone you know is struggling with eating disorders and Type 1 Diabetes, help is available. You deserve support and recovery is possible.</p>
+            
+            <div class="help-resources">
+                <div class="resource-card">
+                    <h4>Crisis Support</h4>
+                    <p>National Eating Disorders Association (NEDA) Helpline</p>
+                    <a href="tel:1-800-931-2237">1-800-931-2237</a>
+                    <p style="margin-top: 10px;">Or text "NEDA" to 741741</p>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>T1D Specialized Care</h4>
+                    <p>We Are Diabetes</p>
+                    <p>Directory of healthcare providers specializing in T1D and eating disorders</p>
+                    <a href="https://wearediabetes.org" target="_blank">Visit Website →</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h4>Mental Health Support</h4>
+                    <p>National Suicide Prevention Lifeline</p>
+                    <a href="tel:988">988</a>
+                    <p style="margin-top: 10px;">Available 24/7 for crisis support</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight-box" style="margin-top: 40px;">
+            <h3>You Are Not Alone</h3>
+            <p>Living with both Type 1 Diabetes and an eating disorder can feel incredibly isolating, but thousands of young women share this struggle. Recovery is challenging, but it is absolutely possible. You deserve to live a full, healthy life - not defined by diabetes or an eating disorder, but by your dreams, relationships, and passions.</p>
+            <p style="margin-top: 15px;">Please reach out for help. Talk to a trusted adult, call a helpline, or connect with our community. Taking that first step toward recovery is brave, and you don't have to do it alone.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Pink Pancreas Project</p>
+            <p>Supporting young women with Type 1 Diabetes</p>
+            <p class="disclaimer">
+                This website provides educational information and peer support. It is not a substitute for professional medical or mental health care. 
+                If you are experiencing a medical emergency or mental health crisis, please call 911 or go to your nearest emergency room. 
+                For eating disorder support, contact the National Eating Disorders Association Helpline at 1-800-931-2237.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
