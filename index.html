@@ -11,90 +11,95 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Fredoka', sans-serif;
             line-height: 1.6;
             color: #333;
             background: #ffffff;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header */
+
+        /* --- Header Section --- */
         header {
-            background: #FFB6D9;
-            padding: 20px 0;
+            background: #FFB6D9; 
+            padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 20px;         /* Increased gap for a cleaner look */
-    font-size: 1.8em;  /* Slightly larger text to match the larger logo */
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-}
-        
-.logo-icon {
-    height: 100px;     /* Increased from 60px to 100px */
-    width: auto;       
-    display: block;
-    object-fit: contain;
-    padding: 5px 0;    /* Adds a tiny bit of vertical space */
-}
-        
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
-        
+
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: opacity 0.3s;
         }
-        
+
         .nav-links a:hover {
             opacity: 0.8;
         }
-        
-        /* Hero Section */
+
+        /* --- Hero Section (New Logo Placement) --- */
         .hero {
             background: #FFF0F5;
-            padding: 80px 20px;
+            padding: 60px 20px 80px; /* Adjusted padding for better spacing */
             text-align: center;
         }
-        
+
         .hero h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #FF69B4;
-            margin-bottom: 20px;
-            font-family: 'Fredoka', sans-serif;
+            margin-bottom: 25px;
             font-weight: 700;
         }
-        
+
+        .hero-logo-wrapper {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo {
+            /* This makes the logo much larger and ensures it stays centered */
+            height: 220px; 
+            width: auto;
+            display: block;
+            object-fit: contain;
+            /* Adds a soft glow to make the logo pop */
+            filter: drop-shadow(0 10px 15px rgba(255, 105, 180, 0.2));
+        }
+
         .hero p {
             font-size: 1.3em;
             color: #666;
-            max-width: 700px;
-            margin: 0 auto 30px;
+            max-width: 750px;
+            margin: 0 auto 40px;
         }
-        
+
         .cta-button {
             display: inline-block;
             background: #FF69B4;
@@ -106,195 +111,111 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
         }
-        
+
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
         }
-        
-        /* About Section */
+
+        /* --- Content Sections --- */
         .about {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background: white;
         }
-        
+
         .about h2 {
             text-align: center;
             font-size: 2.5em;
             color: #FF69B4;
             margin-bottom: 30px;
-            font-family: 'Fredoka', sans-serif;
             font-weight: 700;
         }
-        
+
         .about p {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #555;
             text-align: center;
         }
-        
-        /* Topics Section */
+
         .topics {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background: #FFFACD;
         }
-        
+
         .topics h2 {
             text-align: center;
             font-size: 2.5em;
             color: #9370DB;
             margin-bottom: 50px;
-            font-family: 'Fredoka', sans-serif;
             font-weight: 700;
         }
-        
+
         .topic-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
-        
+
         .topic-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 40px 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
-        
+
         .topic-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
-        
+
         .topic-card h3 {
             font-size: 1.5em;
             margin-bottom: 15px;
             color: #FF69B4;
-            font-family: 'Fredoka', sans-serif;
             font-weight: 600;
         }
-        
-        .topic-card p {
-            color: #666;
-        }
-        
+
         .topic-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
         }
-        
-        /* Community Section */
-        .community {
-            padding: 60px 20px;
-            background: #E0F0FF;
-            text-align: center;
-        }
-        
-        .community h2 {
-            font-size: 2.5em;
-            color: #4169E1;
-            margin-bottom: 30px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 700;
-        }
-        
-        .community p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 1.1em;
-            color: #555;
-        }
-        
-        /* Resources Section */
-        .resources {
-            padding: 60px 20px;
-            background: white;
-        }
-        
-        .resources h2 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #9370DB;
-            margin-bottom: 40px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 700;
-        }
-        
-        .resource-box {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #F3E5F5;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #9370DB;
-        }
-        
-        .resource-box h3 {
-            color: #9370DB;
-            margin-bottom: 15px;
-            font-family: 'Fredoka', sans-serif;
-            font-weight: 600;
-        }
-        
-        .resource-box ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .resource-box li {
-            padding: 10px 0;
-            color: #555;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .resource-box li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Footer */
+
+        /* --- Footer --- */
         footer {
             background: #333;
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
-        
-        footer p {
-            margin-bottom: 15px;
-        }
-        
+
         .disclaimer {
-            font-size: 0.9em;
-            color: #ccc;
-            max-width: 800px;
-            margin: 20px auto 0;
-            font-style: italic;
+            font-size: 0.85em;
+            color: #bbb;
+            max-width: 900px;
+            margin: 30px auto 0;
+            line-height: 1.4;
         }
-        
+
+        /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 10px;
-            }
+            .hero h1 { font-size: 2.2em; }
+            .hero-logo { height: 150px; } /* Slightly smaller for mobile */
+            .nav-links { display: none; } /* Simplified for mobile view */
+            nav { justify-content: center; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Pink Pancreas Project Logo" class="logo-icon">
-                <span>The Pink Pancreas Project</span>
-            </div>
+            <a href="#" class="logo-text">The Pink Pancreas Project</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#topics">Topics</a></li>
@@ -303,102 +224,56 @@
             </ul>
         </nav>
     </header>
-    
+
     <section class="hero">
         <div class="container">
             <h1>You Are Not Alone</h1>
+            
+            <div class="hero-logo-wrapper">
+                <img src="logo.png" alt="Pink Pancreas Project Logo" class="hero-logo">
+            </div>
+
             <p>A supportive space for young women with Type 1 Diabetes to find understanding, resources, and community around body image, eating disorders, and holistic wellness.</p>
             <a href="#community" class="cta-button">Join Our Community</a>
         </div>
     </section>
-    
+
     <section id="about" class="about">
         <div class="container">
             <h2>Our Mission</h2>
-            <p>The Pink Pancreas Project exists because living with Type 1 Diabetes is about more than blood sugar numbers. We understand the unique challenges young women face—from navigating body image in a world obsessed with weight, to the dangerous intersection of diabetes management and eating disorders. This is a judgment-free space where your experiences are valid, your struggles are seen, and your strength is celebrated.</p>
+            <p>The Pink Pancreas Project understands that managing T1D is as much a mental journey as a physical one. We provide a judgment-free space where your struggles with body image and wellness are seen and supported.</p>
         </div>
     </section>
-    
+
     <section id="topics" class="topics">
         <div class="container">
             <h2>What We Talk About</h2>
             <div class="topic-grid">
                 <div class="topic-card">
-                    <div class="topic-icon">💗</div>
+                    <span class="topic-icon">💗</span>
                     <h3>Body Image</h3>
-                    <p>Navigating self-acceptance and body positivity while managing a chronic condition that affects weight and body composition.</p>
+                    <p>Navigating self-acceptance while managing a chronic condition.</p>
                 </div>
                 <div class="topic-card">
-                    <div class="topic-icon">🌸</div>
-                    <h3>Eating Disorders</h3>
-                    <p>Understanding the complex relationship between diabetes management and disordered eating patterns.</p>
-                    <a href="eating-disorders.html" style="color: #9370DB; text-decoration: underline; margin-top: 10px; display: inline-block;">Learn more →</a>
+                    <span class="topic-icon">🌸</span>
+                    <h3>Wellness</h3>
+                    <p>Holistic approaches to life with Type 1 Diabetes.</p>
                 </div>
                 <div class="topic-card">
-                    <div class="topic-icon">💊</div>
-                    <h3>Insulin Restriction</h3>
-                    <p>Addressing the serious dangers of insulin omission (diabulimia) with compassion and evidence-based support.</p>
-                </div>
-                <div class="topic-card">
-                    <div class="topic-icon">🤝</div>
+                    <span class="topic-icon">🤝</span>
                     <h3>Community</h3>
-                    <p>Building connections with others who truly understand the daily realities of living with T1D as a young woman.</p>
+                    <p>Connect with others who truly understand your daily reality.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="community" class="community">
-        <div class="container">
-            <h2>Find Your People</h2>
-            <p>You don't have to navigate this alone. Connect with other young women who understand the unique intersection of Type 1 Diabetes, mental health, and body image. Share experiences, find support, and build meaningful connections.</p>
-            <a href="community-board.html" class="cta-button">Join the Discussion Board</a>
-        </div>
-    </section>
-    
-    <section id="resources" class="resources">
-        <div class="container">
-            <h2>Helpful Resources</h2>
-            
-            <div class="resource-box" style="margin-bottom: 30px;">
-                <h3>Find Specialized Care</h3>
-                <p style="margin-bottom: 20px; color: #555;">Connect with healthcare providers who understand the intersection of Type 1 Diabetes and eating disorders. These specialists can provide compassionate, informed care tailored to your unique needs.</p>
-                <a href="#" class="cta-button" style="background: #9370DB; box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);">Find a Physician</a>
-            </div>
-            
-            <div class="resource-box" style="margin-bottom: 30px;">
-                <h3>Research & Academic Literature</h3>
-                <p style="margin-bottom: 15px; color: #555;">Evidence-based research on Type 1 Diabetes and eating disorders. These peer-reviewed studies provide valuable insights into prevalence, treatment, and recovery.</p>
-                <ul>
-                    <li><strong>Fried, H., et al. (2025).</strong> The intersection of diabetes and eating disorders: Prevention, screening, diagnosis, and management. <em>American Journal of Lifestyle Medicine</em>. <a href="https://doi.org/10.1177/15598276251376294" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Dean, Y. E., et al. (2024).</strong> Association between type 1 diabetes mellitus and eating disorders: A systematic review and meta-analysis. <em>Endocrinology, Diabetes & Metabolism, 7</em>(3), e473. <a href="https://doi.org/10.1002/edm2.473" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Hirvelä, L., et al. (2025).</strong> Eating disorders among people with and without type 1 diabetes: incidence and treatment in a nationwide population-based cohort. <em>Diabetologia, 68</em>(4), 766–777. <a href="https://doi.org/10.1007/s00125-024-06346-7" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Goebel-Fabbri, A. E., et al. (2008).</strong> Insulin restriction and associated morbidity and mortality in women with type 1 diabetes. <em>Diabetes Care, 31</em>(3), 415–419. <a href="https://doi.org/10.2337/dc07-2026" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Hanlan, M. E., et al. (2013).</strong> Eating disorders and disordered eating in type 1 diabetes: Prevalence, screening, and treatment options. <em>Current Diabetes Reports</em>. <a href="https://doi.org/10.1007/s11892-013-0418-4" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Pinhas-Hamiel, O., et al. (2015).</strong> Eating disorders in adolescents with type 1 diabetes: Challenges in diagnosis and treatment. <em>World Journal of Diabetes, 6</em>(3), 517–526. <a href="https://doi.org/10.4239/wjd.v6.i3.517" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Rodin, G., et al. (2002).</strong> Eating disorders in young women with type 1 diabetes mellitus. <em>Journal of Psychosomatic Research, 53</em>(4), 943–949. <a href="https://doi.org/10.1016/S0022-3999(02)00305-7" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                    <li><strong>Coleman, S. E., & Caswell, N. (2020).</strong> Diabetes and eating disorders: An exploration of "Diabulimia." <em>BMC Psychology, 8</em>(1), 101. <a href="https://doi.org/10.1186/s40359-020-00468-4" style="color: #9370DB; text-decoration: underline;">Read article</a></li>
-                </ul>
-            </div>
-            
-            <div class="resource-box">
-                <h3>Crisis & Support Hotlines</h3>
-                <ul>
-                    <li><strong>National Eating Disorders Association (NEDA):</strong> 1-800-931-2237</li>
-                    <li><strong>Crisis Text Line:</strong> Text "NEDA" to 741741</li>
-                    <li><strong>988 Suicide & Crisis Lifeline:</strong> Call or text 988</li>
-                    <li><strong>We Are Diabetes (Diabulimia Support):</strong> wearediabetes.org</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
+
     <footer>
         <div class="container">
             <p>&copy; 2026 The Pink Pancreas Project. All rights reserved.</p>
-            <p>Together, we rise. Together, we thrive.</p>
-            <p class="disclaimer">Disclaimer: This website provides educational information and peer support. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. If you are experiencing a medical emergency, please call 911 or go to your nearest emergency room.</p>
+            <p class="disclaimer">Disclaimer: This website provides educational information and peer support. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding medical conditions.</p>
         </div>
     </footer>
+
 </body>
 </html>
