@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Pink Pancreas Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,8 @@
         }
 
         body {
-            font-family: 'Fredoka', sans-serif;
+            /* Font updated to Montserrat throughout */
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
             background: #ffffff;
@@ -43,6 +44,7 @@
             font-weight: 700;
             color: white;
             text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -54,18 +56,14 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: opacity 0.3s;
         }
 
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        /* --- Hero Section (New Logo Placement) --- */
+        /* --- Hero Section --- */
         .hero {
             background: #FFF0F5;
-            padding: 60px 20px 80px; /* Adjusted padding for better spacing */
+            padding: 60px 20px 80px;
             text-align: center;
         }
 
@@ -80,84 +78,27 @@
             margin: 30px 0;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
         .hero-logo {
-            /* This makes the logo much larger and ensures it stays centered */
             height: 220px; 
             width: auto;
-            display: block;
             object-fit: contain;
-            /* Adds a soft glow to make the logo pop */
             filter: drop-shadow(0 10px 15px rgba(255, 105, 180, 0.2));
         }
 
-        .hero p {
-            font-size: 1.3em;
-            color: #666;
-            max-width: 750px;
-            margin: 0 auto 40px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #FF69B4;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
-        }
-
-        /* --- Content Sections --- */
-        .about {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .about h2 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #FF69B4;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-
-        .about p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2em;
-            color: #555;
-            text-align: center;
-        }
-
+        /* --- Topics Section (Image Replacement) --- */
         .topics {
             padding: 80px 20px;
             background: #FFFACD;
         }
 
-        .topics h2 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #9370DB;
-            margin-bottom: 50px;
-            font-weight: 700;
-        }
-
         .topic-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1100px;
-            margin: 0 auto;
+            margin: 40px auto 0;
         }
 
         .topic-card {
@@ -173,20 +114,35 @@
             transform: translateY(-8px);
         }
 
+        /* This controls your new topic images */
+        .topic-img {
+            width: 80px;      /* Adjust size as needed */
+            height: 80px;
+            margin-bottom: 20px;
+            object-fit: cover; /* Ensures image fills the circle */
+            border-radius: 50%; /* Makes them circular if they aren't already */
+            border: 3px solid #FFB6D9; /* Adds a nice brand border */
+        }
+
         .topic-card h3 {
             font-size: 1.5em;
             margin-bottom: 15px;
             color: #FF69B4;
-            font-weight: 600;
+            font-weight: 700;
         }
 
-        .topic-icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            display: block;
+        /* --- Button & Footer --- */
+        .cta-button {
+            display: inline-block;
+            background: #FF69B4;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
         }
 
-        /* --- Footer --- */
         footer {
             background: #333;
             color: white;
@@ -194,20 +150,10 @@
             text-align: center;
         }
 
-        .disclaimer {
-            font-size: 0.85em;
-            color: #bbb;
-            max-width: 900px;
-            margin: 30px auto 0;
-            line-height: 1.4;
-        }
-
-        /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2em; }
-            .hero-logo { height: 150px; } /* Slightly smaller for mobile */
-            .nav-links { display: none; } /* Simplified for mobile view */
-            nav { justify-content: center; }
+            .hero-logo { height: 150px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -228,42 +174,37 @@
     <section class="hero">
         <div class="container">
             <h1>You Are Not Alone</h1>
-            
             <div class="hero-logo-wrapper">
-                <img src="logo.png" alt="Pink Pancreas Project Logo" class="hero-logo">
+                <img src="logo.png" alt="Logo" class="hero-logo">
             </div>
-
-            <p>A supportive space for young women with Type 1 Diabetes to find understanding, resources, and community around body image, eating disorders, and holistic wellness.</p>
+            <p>Support for young women with Type 1 Diabetes navigating body image and wellness.</p>
             <a href="#community" class="cta-button">Join Our Community</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>The Pink Pancreas Project understands that managing T1D is as much a mental journey as a physical one. We provide a judgment-free space where your struggles with body image and wellness are seen and supported.</p>
         </div>
     </section>
 
     <section id="topics" class="topics">
         <div class="container">
-            <h2>What We Talk About</h2>
+            <h2 style="text-align: center; font-size: 2.5em; color: #9370DB;">What We Talk About</h2>
             <div class="topic-grid">
+                
                 <div class="topic-card">
-                    <span class="topic-icon">💗</span>
+                    <img src="body-image.png" alt="Body Image" class="topic-img">
                     <h3>Body Image</h3>
                     <p>Navigating self-acceptance while managing a chronic condition.</p>
                 </div>
+
                 <div class="topic-card">
-                    <span class="topic-icon">🌸</span>
+                    <img src="wellness.png" alt="Wellness" class="topic-img">
                     <h3>Wellness</h3>
                     <p>Holistic approaches to life with Type 1 Diabetes.</p>
                 </div>
+
                 <div class="topic-card">
-                    <span class="topic-icon">🤝</span>
+                    <img src="community.png" alt="Community" class="topic-img">
                     <h3>Community</h3>
                     <p>Connect with others who truly understand your daily reality.</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -271,7 +212,6 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 The Pink Pancreas Project. All rights reserved.</p>
-            <p class="disclaimer">Disclaimer: This website provides educational information and peer support. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician regarding medical conditions.</p>
         </div>
     </footer>
 
